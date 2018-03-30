@@ -1,0 +1,348 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
+    </repositories>
+       <!-- <repositories>
+        <repository>
+            <id>wso2-maven2-repository</id>
+            <name>WSO2 Maven2 Repository</name>
+            <url>http://maven.wso2.org/nexus/content/repositories/Apache/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+        </repository>
+    </repositories>-->
+
+
+
+
+<!--    <parent>
+        <artifactId>hzy</artifactId>
+        <groupId>com</groupId>
+        &lt;!&ndash;<version>1.0-SNAPSHOT</version>&ndash;&gt;
+    </parent>-->
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.hzy</groupId>
+    <artifactId>sparkscalamaven</artifactId>
+    <name>${project.artifactId}</name>
+    <description>My wonderfull scala app</description>
+<!--    <inceptionYear>2015</inceptionYear>
+    <licenses>
+        <license>
+            <name>My License</name>
+            <url>http://....</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>-->
+
+    <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <encoding>UTF-8</encoding>
+        <scala.version>2.10.5</scala.version>
+        <!--<spark.version>1.6.2</spark.version>-->
+        <!--<scala.compat.version>2.10</scala.compat.version>-->
+        <!--<spark.version>1.6.0</spark.version>-->
+        <spark.cdh.version>1.6.0-cdh5.9.0</spark.cdh.version>
+        <!--<scala.binary.version>2.10</scala.binary.version>-->
+        <yarn.binary.version>2.6.0-cdh5.9.0</yarn.binary.version>
+        <hbase.version>1.2.0-cdh5.9.0</hbase.version>
+        <scala.binary.version>2.10</scala.binary.version>
+        <spark.version>1.6.0-cdh5.9.0</spark.version>
+        <!--<hbase.version>2.0.0-SNAPSHOT</hbase.version>-->
+        <!--<hbase.snapshot.version>2.0.0-SNAPSHOT</hbase.snapshot.version>-->
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mongodb.spark</groupId>
+            <artifactId>mongo-spark-connector_2.10</artifactId>
+            <version>1.1.0</version>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                    <!--<artifactId>slf4j-api</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.apache</groupId>
+            <artifactId>parquet-hadoop</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>/Users/hzy/code/parquet-hadoop.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-jackson_2.10</artifactId>
+            <version>3.2.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hortonworks</groupId>
+            <artifactId>shc-examples</artifactId>
+            <version>1.0.2</version>
+            <!--<scope>system</scope>-->
+            <!--<systemPath>/Users/hzy/code/shc/examples/target/shc-examples-1.0.2-1.6-s_2.10-SNAPSHOT.jar</systemPath>-->
+        </dependency>
+        <dependency>
+            <groupId>com.hortonworks</groupId>
+            <artifactId>shc-core</artifactId>
+            <version>1.0.2</version>
+            <!--<scope>system</scope>-->
+            <!--<systemPath>/Users/hzy/code/shc/core/target/shc-core-1.0.2-1.6-s_2.10-SNAPSHOT.jar</systemPath>-->
+        </dependency>
+        <!-- spark -->
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-assembly_2.10</artifactId>
+            <version>${spark.cdh.version}</version>
+        </dependency>
+
+
+        <!-- hbase -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>${hbase.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>asm</groupId>
+                    <artifactId>asm</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jruby</groupId>
+                    <artifactId>jruby-complete</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-common</artifactId>
+            <version>${hbase.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>asm</groupId>
+                    <artifactId>asm</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jruby</groupId>
+                    <artifactId>jruby-complete</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- scala -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <!-- hadoop -->
+        <!--<dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>${yarn.binary.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.6.0-cdh5.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-core</artifactId>
+            <version>2.6.0-mr1-cdh5.9.0</version>
+        </dependency>
+
+-->
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-client</artifactId>
+            <version>2.6.0-cdh5.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-yarn-server-web-proxy</artifactId>
+            <version>${yarn.binary.version}</version>
+        </dependency>
+
+
+
+        <!-- other -->
+        <dependency>
+            <groupId>org.xerial.snappy</groupId>
+            <artifactId>snappy-java</artifactId>
+            <version>1.1.2.6</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
+        <plugins>
+            <plugin>
+                <!-- see http://davidb.github.com/scala-maven-plugin -->
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-dependencyfile</arg>
+                                <arg>${project.build.directory}/.scala_dependencies</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <useFile>false</useFile>
+                    <disableXmlReport>true</disableXmlReport>
+                    <!--If you have classpath issue like NoDefClassError,...
+                        useManifestOnlyJar>false</useManifestOnlyJar -->
+                    <includes>
+                        <include>**/*Test.*</include>
+                        <include>**/*Suite.*</include>
+                    </includes>
+                </configuration>
+
+
+
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass></mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
