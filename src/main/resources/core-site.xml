@@ -55,6 +55,18 @@
     <value>false</value>
   </property>
   <property>
+    <name>net.topology.script.file.name</name>
+    <value>/etc/hadoop/conf.cloudera.yarn/topology.py</value>
+  </property>
+  <property>
+    <name>io.file.buffer.size</name>
+    <value>65536</value>
+  </property>
+  <property>
+    <name>hadoop.ssl.enabled</name>
+    <value>false</value>
+  </property>
+  <property>
     <name>hadoop.ssl.require.client.cert</name>
     <value>false</value>
     <final>true</final>
@@ -73,5 +85,9 @@
     <name>hadoop.ssl.client.conf</name>
     <value>ssl-client.xml</value>
     <final>true</final>
+  </property>
+  <property>
+    <name>dfs.namenode.shared.edits.dir</name>
+    <value>qjournal://ods17:8485;ods16:8485;ods18:8485/nameservicedms</value>
   </property>
 </configuration>

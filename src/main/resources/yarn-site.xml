@@ -11,92 +11,28 @@
     <value>*</value>
   </property>
   <property>
-    <name>yarn.resourcemanager.ha.enabled</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.ha.automatic-failover.enabled</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.ha.automatic-failover.embedded</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.recovery.enabled</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.zk-address</name>
-    <value>ods18:2181,ods16:2181,ods17:2181,ods15:2181</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.store.class</name>
-    <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</value>
-  </property>
-  <property>
-    <name>yarn.client.failover-sleep-base-ms</name>
-    <value>100</value>
-  </property>
-  <property>
-    <name>yarn.client.failover-sleep-max-ms</name>
-    <value>2000</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.cluster-id</name>
-    <value>yarnRM</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.address.rm376</name>
-    <value>ods16:8032</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.scheduler.address.rm376</name>
-    <value>ods16:8030</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.resource-tracker.address.rm376</name>
-    <value>ods16:8031</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.admin.address.rm376</name>
-    <value>ods16:8033</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.webapp.address.rm376</name>
-    <value>ods16:8088</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.webapp.https.address.rm376</name>
-    <value>ods16:8090</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.address.rm339</name>
+    <name>yarn.resourcemanager.address</name>
     <value>ods18:8032</value>
   </property>
   <property>
-    <name>yarn.resourcemanager.scheduler.address.rm339</name>
-    <value>ods18:8030</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.resource-tracker.address.rm339</name>
-    <value>ods18:8031</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.admin.address.rm339</name>
+    <name>yarn.resourcemanager.admin.address</name>
     <value>ods18:8033</value>
   </property>
   <property>
-    <name>yarn.resourcemanager.webapp.address.rm339</name>
+    <name>yarn.resourcemanager.scheduler.address</name>
+    <value>ods18:8030</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address</name>
+    <value>ods18:8031</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.webapp.address</name>
     <value>ods18:8088</value>
   </property>
   <property>
-    <name>yarn.resourcemanager.webapp.https.address.rm339</name>
+    <name>yarn.resourcemanager.webapp.https.address</name>
     <value>ods18:8090</value>
-  </property>
-  <property>
-    <name>yarn.resourcemanager.ha.rm-ids</name>
-    <value>rm376,rm339</value>
   </property>
   <property>
     <name>yarn.resourcemanager.client.thread-count</name>
@@ -116,11 +52,11 @@
   </property>
   <property>
     <name>yarn.scheduler.increment-allocation-mb</name>
-    <value>1024</value>
+    <value>512</value>
   </property>
   <property>
     <name>yarn.scheduler.maximum-allocation-mb</name>
-    <value>10240</value>
+    <value>1536</value>
   </property>
   <property>
     <name>yarn.scheduler.minimum-allocation-vcores</name>
