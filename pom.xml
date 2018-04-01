@@ -137,6 +137,7 @@
 
     </dependencies>
 
+<!--
 
     <build>
         <plugins>
@@ -174,13 +175,14 @@
 
         </plugins>
     </build>
+-->
 
-<!--    <build>
+    <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
-        &lt;!&ndash;<testSourceDirectory>src/test/scala</testSourceDirectory>&ndash;&gt;
+        <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
         <plugins>
             <plugin>
-                &lt;!&ndash; see http://davidb.github.com/scala-maven-plugin &ndash;&gt;
+                <!-- see http://davidb.github.com/scala-maven-plugin -->
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>3.2.0</version>
@@ -206,8 +208,8 @@
                 <configuration>
                     <useFile>false</useFile>
                     <disableXmlReport>true</disableXmlReport>
-                    &lt;!&ndash;If you have classpath issue like NoDefClassError,...
-                        useManifestOnlyJar>false</useManifestOnlyJar &ndash;&gt;
+                    <!--If you have classpath issue like NoDefClassError,...
+                        useManifestOnlyJar>false</useManifestOnlyJar -->
                     <includes>
                         <include>**/*Test.*</include>
                         <include>**/*Suite.*</include>
@@ -276,5 +278,5 @@
                 </executions>
             </plugin>
         </plugins>
-    </build>-->
+    </build>
 </project>
