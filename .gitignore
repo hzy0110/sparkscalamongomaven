@@ -24,3 +24,5 @@ MANIFEST.MF
 pom的副本.xml
 sparkscalamongomaven.iml
 target
+HelloWorld.scala
+src/main/scala/com/hzy/zhunian
